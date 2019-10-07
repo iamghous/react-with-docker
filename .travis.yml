@@ -22,3 +22,27 @@ before_install:
 script:
   - docker run -e CI=true iamnoman07/dockernode npm run test
 
+deploy:
+  # this is where we say what is our provider
+  provider: elasticbeanstalk
+  # put the region, that was used while creating your EBS instance
+  region: "us-east-2"
+  # here you put the name of the instance you created, your app name basically
+  app: "docker-with-react"
+  # put the envoirnment name
+  env: "DockerWithReact-env"
+  #Travis will zip all your code and put it in zip and store it inside s3
+  # it will then tell aws that you can redoply your app with this file
+  # put the s3 bucket name which is compatible to your EBS instance
+  bucket_name: "elasticbeanstalk-us-east-2-584507583045"
+  # now you gonna use the folder in that bucket_name
+  bucker_path: "docker-with-react"
+  # here i am just telling if something changed in master, only then you
+  # should deploy it
+  on:
+    branch: master
+# now we are providing both access and secure key
+access_key_id:
+  secure: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: "$AWS_SECRET_KEY"
