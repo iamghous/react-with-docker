@@ -1,0 +1,22 @@
+# Tell travis we need a copy of docker running
+# build our image using Dockerfile.dev
+# Tell travis how to run tests
+# Tell travis how to deploy code to AWS
+
+# we are telling travis that we need to use sudo
+sudo: required
+
+# we are telling travis ci to use docker, install it etc
+# so it will know that we will use some docker commands
+services:
+  - docker
+
+# we are saying build Dockerfile from current dir and-
+# -tag it with name dockerNodeImage
+before_install:
+  - docker build -t dockerNodeImage -f Dockerfile.dev .
+
+# we are telling travis to use this docker image and run it and overried the
+# current commadn with npm test
+script:
+  - docker run -e CI=true dockerNodeImage npm run test
