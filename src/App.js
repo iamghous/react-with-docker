@@ -8,7 +8,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload. and bye there
+          Hi! this app is created by Noman Ghous and running on AWS elastic beanstalk.
         </p>
         <a
           className="App-link"
