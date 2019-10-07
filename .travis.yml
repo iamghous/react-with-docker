@@ -1,3 +1,4 @@
+language: generic
 # Tell travis we need a copy of docker running
 # build our image using Dockerfile.dev
 # Tell travis how to run tests
@@ -20,4 +21,4 @@ before_install:
 # current commadn with npm test
 script:
   - docker run -e CI=true dockerNodeImage npm run test
-language: generic 
+
