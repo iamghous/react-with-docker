@@ -8,7 +8,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Hi! this app is created by Noman Ghous and running on AWS elastic beanstalk.
+          Hi! this app is created by Noman Ghous and running using docker on AWS elastic beanstalk.
         </p>
         <a
           className="App-link"
